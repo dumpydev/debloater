@@ -19,8 +19,11 @@ def wait_for_device():
 
 
 def main():
+    wait_for_device()
     ui_file = os.path.join(os.path.dirname(__file__), 'main.ui')
     window = uic.loadUi(ui_file)
+    # set the title
+    window.setWindowTitle("Debloat")
     # show window
     window.show()
     # run app
@@ -43,7 +46,7 @@ def main():
         window.Status.setText("Status: Downloading debloat script")
         # check os 
         if os.name == 'nt':
-            os.system("curl -o debloat.bat https://raw.githubusercontent.com/realKarthikNair/realme-ui-debloater/main/Windows%20Version/DebloatRealme.bat")
+            os.system("curl -o debloat.bat https://raw.githubusercontent.com/dumpydev/realme-ui-debloater/main/Windows%20Version/DebloatRealme.bat")
             window.Status.setText("Status: Debloating")
             os.system(".\debloat.bat")
         else:
@@ -62,5 +65,5 @@ def main():
     window.Credits.clicked.connect(lambda: credits())
     window.Realme.clicked.connect(lambda: realme())
     sys.exit(app.exec())
-wait_for_device()
+
 main()
