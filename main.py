@@ -34,11 +34,34 @@ def main():
         window.Status.setText("Status: Downloading debloat script")
         # check os 
         if os.name == 'nt':
-            os.system("curl -o debloat.bat https://raw.githubusercontent.com/invinciblevenom/debloat_samsung_android/main/adbdebloat.bat")
+            os.system("curl -o debloat.bat https://raw.githubusercontent.com/khlam/debloat-samsung-android/master/commands.txt")
+            # Open the input file in read mode
+            with open('debloat.bat', 'r') as f:
+                # Read all the lines in the file
+                lines = f.readlines()
+
+            # Open the output file in write mode
+            with open('df.bat', 'w') as f:
+                # Iterate over the lines
+                for line in lines:
+                    # Add the prefix to each line and write it to the output file
+                    f.write('adb shell ' + line)
+            
             window.Status.setText("Status: Debloating")
-            os.system(".\debloat.bat")
+            os.system(".\df.bat")
         else:
-            os.system("curl -o debloat.sh https://raw.githubusercontent.com/invinciblevenom/debloat_samsung_android/main/adbdebloat.sh")
+            os.system("curl -o debloat.sh https://raw.githubusercontent.com/khlam/debloat-samsung-android/master/commands.txt")
+            with open('debloat.bat', 'r') as f:
+                # Read all the lines in the file
+                lines = f.readlines()
+
+            # Open the output file in write mode
+            with open('df.bat', 'w') as f:
+                f.write('#!/bin/bash')
+                # Iterate over the lines
+                for line in lines:
+                    # Add the prefix to each line and write it to the output file
+                    f.write('adb shell ' + line)
             window.Status.setText("Status: Debloating")
             os.system("bash debloat.sh")
     def realme():
