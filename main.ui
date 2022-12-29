@@ -24,8 +24,10 @@
    </property>
    <property name="font">
     <font>
-     <family>Arial</family>
+     <family>Consolas</family>
      <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="text">
@@ -56,7 +58,10 @@
    </property>
    <property name="font">
     <font>
+     <family>Consolas</family>
      <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="text">

@@ -13,7 +13,7 @@ def wait_for_device():
     window = uic.loadUi(ui_file)
     # show dialog
     window.show()
-    os.system("adb wait-for-device")
+    # os.system("adb wait-for-device")
     window.close()
 
 
@@ -80,7 +80,7 @@ def main():
         from PySide6.QtWidgets import QMessageBox
         msg = QMessageBox()
         msg.setWindowTitle("Credits")
-        msg.setText("Made by Dumpy. \n\nSamsung debloat script by invinciblevenom\nRealme debloat script by realKarthikNair (linux slightly modified by dumpy.)")
+        msg.setText("Made by Dumpy. \n\nSamsung debloat script by khlam\nRealme debloat script by realKarthikNair\nThanks to them for making the scripts.")
 
         msg.exec()
 
